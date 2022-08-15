@@ -4,6 +4,7 @@
 !src/vite-env.d.ts
 !src/types.d.ts
 !.storybook/*.js
+stories
 
 !.eslintrc.js
 !commitlint.config.js
