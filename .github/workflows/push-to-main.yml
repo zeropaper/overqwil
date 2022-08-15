@@ -1,0 +1,88 @@
+name: Merge to main branch
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://npm.pkg.github.com/
+      - uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - run: npm ci
+      - run: npm test
+
+  update-docs:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          path: overqwil
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://npm.pkg.github.com/
+      - uses: actions/cache@v3
+        with:
+          path: ~/overqwil/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - run: cd overqwil && npm ci
+      - run: cd overqwil && npm run docs
+
+      # - name: View the github context
+      #   run: echo "$GITHUB_CONTEXT"
+      #   env:
+      #     GITHUB_CONTEXT: ${{ toJson(github) }}
+
+      - uses: actions/checkout@v3
+        with:
+          ref: ghpages
+          path: ghpages
+      - run: |
+          cp -rf overqwil/docs/* ghpages/
+          git config --global user.name "Valentin Vago (CI)"
+          git config --global user.email "65971+zeropaper@users.noreply.github.com"
+          cd ghpages
+          git status
+          git add .
+          git status
+          git commit -m "docs: update docs" --allow-empty
+          git status
+          git push origin +ghpages
+
+  update-changelog:
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: Conventional Changelog Action
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          # git-message: 'chore(release): {version}'
+          # git-user-name: 'Awesome Changelog Action'
+          # git-user-email: 'awesome_changelog@github.actions.com'
+          # preset: 'angular'
+          # tag-prefix: 'v'
+          # output-file: 'MY_CUSTOM_CHANGELOG.md'
+          # release-count: '10'
+          # version-file: './my_custom_version_file.json' # or .yml, .yaml, .toml
+          # version-path: 'path.to.version'
+          # skip-on-empty: 'false'
+          # skip-version-file: 'false'
+          # skip-commit: 'false'
