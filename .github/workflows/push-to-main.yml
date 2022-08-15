@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 16
           registry-url: https://npm.pkg.github.com/
       - uses: actions/cache@v3
         with:
@@ -31,7 +31,7 @@ jobs:
           path: overqwil
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 16
           registry-url: https://npm.pkg.github.com/
       - uses: actions/cache@v3
         with:
@@ -49,19 +49,19 @@ jobs:
 
       - uses: actions/checkout@v3
         with:
-          ref: gh-pages
-          path: gh-pages
+          ref: ghpages
+          path: ghpages
       - run: |
-          cp -rf overqwil/docs/* gh-pages/
+          cp -rf overqwil/docs/* ghpages/
           git config --global user.name "Valentin Vago (CI)"
           git config --global user.email "65971+zeropaper@users.noreply.github.com"
-          cd gh-pages
+          cd ghpages
           git status
           git add .
           git status
           git commit -m "docs: update docs" --allow-empty
           git status
-          git push origin gh-pages
+          git push origin +ghpages
 
   update-changelog:
     needs: test

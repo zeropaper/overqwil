@@ -1,7 +1,10 @@
+import React from 'react';
 import { Button as MButton, ButtonProps as MProps } from '@mantine/core';
 
-export type PropTypes = Omit<MProps, 'unstyled'>;
+export interface PropTypes extends Omit<MProps, 'unstyled'> {}
 
-export default function Button(props: PropTypes) {
-  return <MButton {...props} unstyled />;
+export function Button(props: PropTypes) {
+  return <MButton {...props} />;
 }
+
+export default Button;
