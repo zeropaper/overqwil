@@ -7,7 +7,7 @@ import { Text } from '../..';
 import { Title } from './Title';
 
 export default {
-  title: 'Overqwil/Title',
+  title: 'ComponentsTitle',
   component: Title,
   parameters: {
     layout: 'centered',

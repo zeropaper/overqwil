@@ -6,7 +6,7 @@ import { withGlobalStyles } from '../../.storybook/utils';
 import { Button } from './Button';
 
 export default {
-  title: 'Overqwil/Button',
+  title: 'ComponentsButton',
   component: Button,
   parameters: {
     layout: 'centered',

@@ -6,7 +6,7 @@ import { withGlobalStyles } from '../../.storybook/utils';
 import { TextInput } from './TextInput';
 
 export default {
-  title: 'Overqwil/TextInput',
+  title: 'ComponentsTextInput',
   component: TextInput,
   parameters: {
     layout: 'centered',

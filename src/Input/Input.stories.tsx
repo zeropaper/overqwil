@@ -6,7 +6,7 @@ import { withGlobalStyles } from '../../.storybook/utils';
 import { Input } from './Input';
 
 export default {
-  title: 'Overqwil/Input',
+  title: 'ComponentsInput',
   component: Input,
   parameters: {
     layout: 'centered',

@@ -7,7 +7,7 @@ import { Title } from '../..';
 import AppShell from './AppShell';
 
 export default {
-  title: 'Overqwil/AppShell',
+  title: 'ComponentsAppShell',
   component: AppShell,
   decorators: [withGlobalStyles],
   parameters: {

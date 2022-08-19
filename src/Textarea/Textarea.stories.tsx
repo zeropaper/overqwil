@@ -6,7 +6,7 @@ import { withGlobalStyles } from '../../.storybook/utils';
 import { Textarea } from './Textarea';
 
 export default {
-  title: 'Overqwil/Textarea',
+  title: 'ComponentsTextarea',
   component: Textarea,
   parameters: {
     layout: 'centered',

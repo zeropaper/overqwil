@@ -6,7 +6,7 @@ import { withGlobalStyles } from '../../.storybook/utils';
 import { OverqwilLogo } from './OverqwilLogo';
 
 export default {
-  title: 'Overqwil/OverqwilLogo',
+  title: 'ComponentsOverqwilLogo',
   component: OverqwilLogo,
   parameters: {
     layout: 'centered',

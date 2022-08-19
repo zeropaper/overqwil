@@ -6,7 +6,7 @@ import { withGlobalStyles } from '../../.storybook/utils';
 import { Transition } from './Transition';
 
 export default {
-  title: 'Overqwil/Transition',
+  title: 'ComponentsTransition',
   component: Transition,
   parameters: {
     layout: 'centered',
