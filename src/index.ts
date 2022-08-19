@@ -20,3 +20,6 @@ export type { PropTypes as OverqwilLogoProps } from './OverqwilLogo/OverqwilLogo
 
 export { default as Transition } from './Transition/Transition';
 export type { PropTypes as TransitionProps } from './Transition/Transition';
+
+export { default as Input } from './Input/Input';
+export type { PropTypes as InputProps } from './Input/Input';
