@@ -16,13 +16,21 @@ export default {
   args: {},
 } as ComponentMeta<typeof AppShell>;
 
+const noCtrl = {
+  table: {
+    disable: true,
+  },
+};
+
 const FullTemplate: ComponentStory<typeof AppShell> = (args) => {
   const headerContent = <Title>Overqwil</Title>;
   return <AppShell {...args} header={headerContent} />;
 };
 export const Full = FullTemplate.bind({});
-Full.args = {
-  children: 'AppShell',
+Full.args = {};
+Full.argTypes = {
+  children: noCtrl,
+  header: noCtrl,
 };
 
 const EmptyTemplate: ComponentStory<typeof AppShell> = (args) => (

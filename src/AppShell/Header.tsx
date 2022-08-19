@@ -12,9 +12,11 @@ const useStyles = createStyles({
   },
 });
 
-export type PropTypes = React.PropsWithChildren<{}>;
+export type PropTypes = React.PropsWithChildren<{
+  onToggleScreenEffect?: () => void;
+}>;
 
-export function Header({ children }: PropTypes) {
+export function Header({ children, onToggleScreenEffect }: PropTypes) {
   const { classes } = useStyles();
   return (
     <MHeader
@@ -32,6 +34,12 @@ export function Header({ children }: PropTypes) {
       </a>
 
       {children}
+
+      {onToggleScreenEffect && (
+        <button type="button" onClick={onToggleScreenEffect}>
+          Toggle screen effect
+        </button>
+      )}
     </MHeader>
   );
 }

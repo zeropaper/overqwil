@@ -8,13 +8,21 @@ import Header from './Header';
 
 export { Header };
 
-export interface PropTypes extends MAppShellProps {}
+export interface PropTypes extends MAppShellProps {
+  onToggleScreenEffect?: () => void;
+}
 
-export function AppShell(props: PropTypes) {
+export function AppShell({ onToggleScreenEffect, ...props }: PropTypes) {
   return (
     <MAppShell
       {...props}
-      header={props.header ? <Header>{props.header}</Header> : undefined}
+      header={
+        props.header ? (
+          <Header onToggleScreenEffect={onToggleScreenEffect}>
+            {props.header}
+          </Header>
+        ) : undefined
+      }
     />
   );
 }
