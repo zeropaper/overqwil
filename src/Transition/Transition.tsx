@@ -1,6 +1,6 @@
-import { PropsWithChildren } from 'react';
+import * as React from 'react';
 
-export type PropTypes = PropsWithChildren<{}>;
+export type PropTypes = React.PropsWithChildren<{}>;
 
 export function Transition() {
   return <></>;

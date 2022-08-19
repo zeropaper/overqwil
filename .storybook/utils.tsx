@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { OverqwilProvider, MantineSize, DefaultMantineColor } from '../index';
 import Global from '../src/Global/Global';

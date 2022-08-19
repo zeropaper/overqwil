@@ -1,3 +1,4 @@
+import * as React from 'react';
 import {
   AppShell as MAppShell,
   AppShellProps as MAppShellProps,

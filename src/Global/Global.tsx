@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { Global as MGlobal, keyframes } from '@mantine/core';
 
 import '@fontsource/titillium-web';
