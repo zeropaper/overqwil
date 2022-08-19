@@ -1,5 +1,5 @@
+import * as React from 'react';
 import { Header as MHeader } from '@mantine/core';
-import { PropsWithChildren } from 'react';
 
 import { createStyles } from '../..';
 import OverqwilLogo from '../OverqwilLogo/OverqwilLogo';
@@ -12,7 +12,7 @@ const useStyles = createStyles({
   },
 });
 
-export type PropTypes = PropsWithChildren<{}>;
+export type PropTypes = React.PropsWithChildren<{}>;
 
 export function Header({ children }: PropTypes) {
   const { classes } = useStyles();

@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { Title as MTitle, TitleProps as MTitleProps } from '@mantine/core';
 
 export interface PropTypes extends MTitleProps {
