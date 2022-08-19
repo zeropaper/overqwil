@@ -41,8 +41,8 @@ export function createTheme(): MantineThemeOverride {
       fontFamily: '"Titillium Web"',
       fontWeight: 'bold',
     },
-    primaryColor: 'yellow',
-    primaryShade: 7,
+    primaryColor: 'indigo',
+    primaryShade: 6,
     other: {
       accentColor,
       accentShade,
