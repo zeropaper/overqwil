@@ -26,3 +26,6 @@ export type { PropTypes as TextInputProps } from './TextInput/TextInput';
 
 export { default as Input } from './Input/Input';
 export type { PropTypes as InputProps } from './Input/Input';
+
+export { default as Textarea } from './Textarea/Textarea';
+export type { PropTypes as TextareaProps } from './Textarea/Textarea';
