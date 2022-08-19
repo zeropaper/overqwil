@@ -1,4 +1,7 @@
 *.js
+*.js.map
+*.d.ts
+!src/vite-env.d.ts
 !.storybook/*.js
 stories
 

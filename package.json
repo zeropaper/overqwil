@@ -1,5 +1,5 @@
 {
-  "name": "overqwil",
+  "name": "@zeropaper/overqwil",
   "version": "0.0.1",
   "description": "An example of an over killed customization of Mantine",
   "main": "index.js",
@@ -11,8 +11,9 @@
     "dev:vite": "vite",
     "dev:sb": "start-storybook -p 6006",
     "docs": "run-p docs:*",
-    "docs:vite": "vite build",
-    "docs:sb": "build-storybook -o dist/storybook",
+    "docs:vite": "vite build --outDir docs",
+    "docs:sb": "build-storybook -o docs/storybook",
+    "build": "tsc --skipLibCheck --jsx react -d --sourcemap index.ts",
     "prepare": "husky install"
   },
   "repository": {
