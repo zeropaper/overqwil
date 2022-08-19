@@ -17,3 +17,6 @@ export type { PropTypes as TitleProps } from './Title/Title';
 
 export { default as OverqwilLogo } from './OverqwilLogo/OverqwilLogo';
 export type { PropTypes as OverqwilLogoProps } from './OverqwilLogo/OverqwilLogo';
+
+export { default as Transition } from './Transition/Transition';
+export type { PropTypes as TransitionProps } from './Transition/Transition';
