@@ -1,10 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import {
-  CSSObject,
-  MantineTheme,
-  TextInputStylesNames,
-  InputWrapperStylesNames,
-} from '@mantine/core';
+import { TextInputStylesNames, InputWrapperStylesNames } from '@mantine/core';
 import type { ComponentStylesOverride } from '../styles.utils';
 
 export const textInputStyles: ComponentStylesOverride<TextInputStylesNames> = ({
@@ -23,7 +17,7 @@ export const textInputStyles: ComponentStylesOverride<TextInputStylesNames> = ({
 });
 
 export const textInputWrapperStyles: ComponentStylesOverride<InputWrapperStylesNames> =
-  (theme) => ({
+  () => ({
     // TODO: has no effect.. why?
     // root: {
     //   backgroundColor: 'yellow',
