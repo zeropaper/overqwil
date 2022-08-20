@@ -48,6 +48,7 @@
     "@commitlint/config-conventional": "17.0.3",
     "@emotion/react": "^11.10.0",
     "@mantine/core": "^5.1.6",
+    "@mantine/form": "5.2.0",
     "@mantine/hooks": "^5.1.6",
     "@storybook/addon-actions": "6.5.10",
     "@storybook/addon-essentials": "6.5.10",
