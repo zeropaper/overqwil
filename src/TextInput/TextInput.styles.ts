@@ -5,7 +5,7 @@ import {
   TextInputStylesNames,
   InputWrapperStylesNames,
 } from '@mantine/core';
-import type { ComponentStylesOverride } from '../styles.util';
+import type { ComponentStylesOverride } from '../styles.utils';
 
 export const textInputStyles: ComponentStylesOverride<TextInputStylesNames> = ({
   spacing,
