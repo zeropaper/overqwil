@@ -4,11 +4,10 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { withGlobalStyles } from '../../.storybook/utils';
 
-import { ColorSwatch, useMantineTheme, Table } from '../..';
-import { OverqwilProvider } from './OverqwilProvider';
+import { ColorSwatch, useMantineTheme, Table, OverqwilProvider } from '..';
 
 export default {
-  title: 'ComponentsOverqwilProvider',
+  title: 'Components/OverqwilProvider',
   component: OverqwilProvider,
   decorators: [withGlobalStyles],
   parameters: {

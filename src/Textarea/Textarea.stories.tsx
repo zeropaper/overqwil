@@ -3,10 +3,10 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { withGlobalStyles } from '../../.storybook/utils';
 
-import { Textarea } from './Textarea';
+import { Textarea } from '..';
 
 export default {
-  title: 'ComponentsTextarea',
+  title: 'Components/Textarea',
   component: Textarea,
   parameters: {
     layout: 'centered',

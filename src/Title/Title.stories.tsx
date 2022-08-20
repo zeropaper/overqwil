@@ -2,12 +2,11 @@ import * as React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { withGlobalStyles } from '../../.storybook/utils';
-import { Text } from '../..';
 
-import { Title } from './Title';
+import { Text, Title } from '..';
 
 export default {
-  title: 'ComponentsTitle',
+  title: 'Components/Title',
   component: Title,
   parameters: {
     layout: 'centered',

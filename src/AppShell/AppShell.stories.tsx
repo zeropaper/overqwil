@@ -4,10 +4,10 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { withGlobalStyles } from '../../.storybook/utils';
 import { Title } from '../..';
 
-import AppShell from './AppShell';
+import { AppShell } from '..';
 
 export default {
-  title: 'ComponentsAppShell',
+  title: 'Components/AppShell',
   component: AppShell,
   decorators: [withGlobalStyles],
   parameters: {

@@ -3,10 +3,10 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { withGlobalStyles } from '../../.storybook/utils';
 
-import { OverqwilLogo } from './OverqwilLogo';
+import { OverqwilLogo } from '..';
 
 export default {
-  title: 'ComponentsOverqwilLogo',
+  title: 'Components/OverqwilLogo',
   component: OverqwilLogo,
   parameters: {
     layout: 'centered',

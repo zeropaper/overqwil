@@ -3,10 +3,10 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { withGlobalStyles } from '../../.storybook/utils';
 
-import { Button } from './Button';
+import { Button } from '..';
 
 export default {
-  title: 'ComponentsButton',
+  title: 'Components/Button',
   component: Button,
   parameters: {
     layout: 'centered',

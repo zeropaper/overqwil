@@ -3,16 +3,14 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { withGlobalStyles } from '../../.storybook/utils';
 
-import { Transition } from './Transition';
+import { Transition } from '..';
 
 export default {
-  title: 'ComponentsTransition',
+  title: 'Components/Transition',
   component: Transition,
   parameters: {
     layout: 'centered',
   },
-  args: {},
-  argTypes: {},
   decorators: [withGlobalStyles],
 } as ComponentMeta<typeof Transition>;
 

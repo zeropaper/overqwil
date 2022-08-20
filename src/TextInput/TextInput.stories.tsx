@@ -3,10 +3,10 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { withGlobalStyles } from '../../.storybook/utils';
 
-import { TextInput } from './TextInput';
+import { TextInput } from '..';
 
 export default {
-  title: 'ComponentsTextInput',
+  title: 'Components/TextInput',
   component: TextInput,
   parameters: {
     layout: 'centered',
