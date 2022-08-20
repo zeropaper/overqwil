@@ -10,6 +10,8 @@ import {
   ColorScheme,
 } from '@mantine/core';
 
+import components from './Overqwil.components';
+
 declare module '@mantine/core' {
   export interface MantineThemeOther {
     accentColor: MantineColor;
@@ -35,6 +37,7 @@ export type PropTypes = Omit<
 export function createTheme(): MantineThemeOverride {
   const accentColor: MantineColor = 'cyan';
   const accentShade: MantineTheme['primaryShade'] = { light: 2, dark: 2 };
+
   return {
     fontFamily: '"Titillium Web"',
     fontFamilyMonospace: 'Consolas, "Courier New", Courier, monospace',
@@ -44,6 +47,7 @@ export function createTheme(): MantineThemeOverride {
     },
     primaryColor: 'indigo',
     primaryShade: 6,
+    components,
     other: {
       accentColor,
       accentShade,

@@ -13,6 +13,7 @@ export function Title({ noDecoration, ...props }: PropTypes) {
   return (
     <MTitle
       {...props}
+      // TODO: move that to a Title.styles.ts file
       sx={({ spacing, colors, fn, other, colorScheme }) => {
         if (noDecoration) return {};
         const glitch = keyframes({
