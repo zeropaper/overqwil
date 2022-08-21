@@ -11,6 +11,7 @@ module.exports = {
     // error @ index.js:56
     // that makes storybook unusable
     // '@storybook/addon-interactions',
+    '@storybook/addon-actions',
   ],
   framework: '@storybook/react',
   core: {
