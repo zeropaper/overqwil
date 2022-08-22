@@ -2,6 +2,7 @@
 *.js.map
 *.d.ts
 !src/vite-env.d.ts
+!src/types.d.ts
 !.storybook/*.js
 stories
 

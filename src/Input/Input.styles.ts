@@ -1,5 +1,5 @@
 import type { InputStylesNames } from '@mantine/core';
-import type { ComponentStylesOverride } from '../styles.utils';
+import type { ComponentStylesOverride } from '../types';
 
 export const inputStyles: ComponentStylesOverride<InputStylesNames> = () => ({
   wrapper: {

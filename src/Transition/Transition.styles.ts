@@ -1,4 +1,4 @@
-import { CreateStylesFunction } from '../styles.utils';
+import type { CreateStylesFunction } from '../types';
 
 import { keyframes, createStyles } from '..';
 
