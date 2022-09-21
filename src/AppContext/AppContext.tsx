@@ -1,49 +1,69 @@
+import { useLocalStorage } from '@mantine/hooks';
 import * as React from 'react';
 import type { ColorScheme, MantineColor, MantineTheme } from '..';
 
-export interface AppContextInterface {
+interface AppContextValues {
   colorScheme: ColorScheme;
-  setColorScheme: (colorScheme: ColorScheme) => void;
   screenEffect: boolean;
-  setScreenEffect: (screenEffect: boolean) => void;
   primaryColor: MantineColor;
-  setPrimaryColor: (color: MantineColor) => void;
   primaryShade: MantineTheme['primaryShade'];
+}
+
+export interface AppContextInterface extends AppContextValues {
+  setColorScheme: (colorScheme: ColorScheme) => void;
+  setScreenEffect: (screenEffect: boolean) => void;
+  setPrimaryColor: (color: MantineColor) => void;
   setPrimaryShade: (shade: MantineTheme['primaryShade']) => void;
 }
 
 const defaultAppContextValue: AppContextInterface = {
   colorScheme: 'dark',
-  setColorScheme: () => {},
   screenEffect: false,
-  setScreenEffect: () => {},
   primaryColor: 'indigo',
-  setPrimaryColor: () => {},
   primaryShade: 6,
+  setColorScheme: () => {},
+  setScreenEffect: () => {},
+  setPrimaryColor: () => {},
   setPrimaryShade: () => {},
 };
 
 const AppContext = React.createContext(defaultAppContextValue);
 
 function AppContextProvider({ children }: { children: React.ReactNode }) {
-  const [colorScheme, setColorScheme] = React.useState<ColorScheme>('dark');
-  const [screenEffect, setScreenEffect] = React.useState(false);
-  const [primaryColor, setPrimaryColor] =
-    React.useState<MantineColor>('indigo');
-  const [primaryShade, setPrimaryShade] =
-    React.useState<MantineTheme['primaryShade']>(6);
-  const value = React.useMemo(
+  const [values, setValues] = useLocalStorage<AppContextValues>({
+    key: 'app-context',
+    defaultValue: {
+      colorScheme: defaultAppContextValue.colorScheme,
+      screenEffect: defaultAppContextValue.screenEffect,
+      primaryColor: defaultAppContextValue.primaryColor,
+      primaryShade: defaultAppContextValue.primaryShade,
+    },
+  });
+  const value: typeof defaultAppContextValue = React.useMemo(
     () => ({
-      colorScheme,
-      setColorScheme,
-      screenEffect,
-      setScreenEffect,
-      primaryColor,
-      setPrimaryColor,
-      primaryShade,
-      setPrimaryShade,
+      ...values,
+      setColorScheme: (val: AppContextValues['colorScheme']) =>
+        setValues((current) => ({
+          ...current,
+          colorScheme: val,
+        })),
+      setScreenEffect: (val: AppContextValues['screenEffect']) =>
+        setValues((current) => ({
+          ...current,
+          screenEffect: val,
+        })),
+      setPrimaryColor: (val: AppContextValues['primaryColor']) =>
+        setValues((current) => ({
+          ...current,
+          primaryColor: val,
+        })),
+      setPrimaryShade: (val: AppContextValues['primaryShade']) =>
+        setValues((current) => ({
+          ...current,
+          primaryShade: val,
+        })),
     }),
-    [colorScheme, screenEffect, primaryColor, primaryShade]
+    [values]
   );
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }

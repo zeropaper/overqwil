@@ -1,9 +1,7 @@
 import * as React from 'react';
 import { Prism } from '@mantine/prism';
 
-import Comparator, {
-  PropTypes as ComparatorProps,
-} from '../Comparator/Comparator';
+import Comparator, { PropTypes as ComparatorProps } from './Comparator';
 
 export type PropTypes = ComparatorProps & {
   code: string;

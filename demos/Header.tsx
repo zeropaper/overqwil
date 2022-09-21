@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Header as MHeader } from '@mantine/core';
 
-import { createStyles } from '../..';
-import OverqwilLogo from '../OverqwilLogo/OverqwilLogo';
+import { createStyles } from '..';
+import OverqwilLogo from '../src/OverqwilLogo/OverqwilLogo';
 
 const useStyles = createStyles({
   logo: {
@@ -12,11 +12,9 @@ const useStyles = createStyles({
   },
 });
 
-export type PropTypes = React.PropsWithChildren<{
-  onToggleScreenEffect?: () => void;
-}>;
+export type PropTypes = React.PropsWithChildren<{}>;
 
-export function Header({ children, onToggleScreenEffect }: PropTypes) {
+export function Header({ children }: PropTypes) {
   const { classes } = useStyles();
   return (
     <MHeader
@@ -26,7 +24,9 @@ export function Header({ children, onToggleScreenEffect }: PropTypes) {
         display: 'flex',
         gap: theme.spacing.md,
         alignItems: 'center',
-        borderBottom: 'none',
+        '& > .end': {
+          marginLeft: 'auto',
+        },
       })}
     >
       <a style={{ aspectRatio: '1', height: '100%' }} href="/">
@@ -34,12 +34,6 @@ export function Header({ children, onToggleScreenEffect }: PropTypes) {
       </a>
 
       {children}
-
-      {onToggleScreenEffect && (
-        <button type="button" onClick={onToggleScreenEffect}>
-          Toggle screen effect
-        </button>
-      )}
     </MHeader>
   );
 }

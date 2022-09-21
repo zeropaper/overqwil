@@ -1,6 +1,6 @@
 import * as React from 'react';
-import type { Sx } from '../..';
-import { Box, MantineProvider, Text, useMantineTheme } from '../..';
+import type { Sx } from '..';
+import { Box, MantineProvider, Text, useMantineTheme } from '..';
 
 const withPattern: Sx = ({ fn, colors, colorScheme }) => ({
   display: 'flex',
