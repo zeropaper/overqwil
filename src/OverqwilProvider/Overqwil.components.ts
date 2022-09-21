@@ -1,21 +1,19 @@
-import { MantineThemeOverride } from '@mantine/core';
+import { MantineTheme, MantineThemeOverride } from '../..';
 
-import {
-  textInputStyles,
-  textInputWrapperStyles,
-} from '../TextInput/TextInput.styles';
-import inputStyles from '../Input/Input.styles';
+import * as Button from '../Button/Button.styles';
+import * as Select from '../Select/Select.styles';
+import * as Input from '../Input/Input.styles';
+import * as NumberInput from '../NumberInput/NumberInput.styles';
+
+type ThemeComponent = MantineTheme['components'][string];
+
+export type ThemeComponentStyles = Exclude<ThemeComponent['styles'], undefined>;
 
 export const components: MantineThemeOverride['components'] = {
-  TextInput: {
-    styles: textInputStyles,
-  },
-  TextInputWrapper: {
-    styles: textInputWrapperStyles,
-  },
-  Input: {
-    styles: inputStyles,
-  },
+  Input,
+  NumberInput,
+  Select,
+  Button,
 };
 
 export default components;
