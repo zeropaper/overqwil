@@ -38,6 +38,7 @@ export function TextWriter({
 
       if (next < children.length) {
         if (onTick) onTick(next, children.length);
+        clearTimeout(timeout.current);
         timeout.current = window.setTimeout(tick, msPerChar);
         return next;
       }
