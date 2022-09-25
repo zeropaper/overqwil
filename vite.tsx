@@ -1,5 +1,4 @@
-/* eslint-disable spaced-comment */
-/* eslint-disable import/no-unresolved, import/no-extraneous-dependencies */
+/* eslint-disable spaced-comment, import/no-unresolved, import/no-extraneous-dependencies */
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';

@@ -8,9 +8,6 @@ import {
   MantineThemeColors,
   MantineThemeOverride,
   ColorScheme,
-  DEFAULT_THEME,
-  MantineSizes,
-  MantineSize,
 } from '@mantine/core';
 
 import components from './Overqwil.components';
@@ -80,14 +77,6 @@ export function createTheme({
     primaryShade,
     colorScheme,
     components,
-    radius: Object.entries(DEFAULT_THEME.radius).reduce<MantineSizes>(
-      (obj, [key, value]) => {
-        // eslint-disable-next-line no-param-reassign
-        obj[key as MantineSize] = value * 1.5;
-        return obj;
-      },
-      {} as MantineSizes
-    ),
     other: {
       accentColor,
       accentShade,

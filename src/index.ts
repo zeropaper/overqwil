@@ -11,3 +11,10 @@ export type { PropTypes as OverqwilLogoProps } from './OverqwilLogo/OverqwilLogo
 
 export { default as TextWriter } from './TextWriter/TextWriter';
 export type { PropTypes as TextWriterProps } from './TextWriter/TextWriter';
+
+export { Button } from './Button/Button';
+
+export { Input } from './Input/Input';
+export { TextInput } from './TextInput/TextInput';
+
+export { Paper } from './Paper/Paper';
