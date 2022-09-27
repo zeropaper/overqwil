@@ -7,10 +7,12 @@
   },
   "main": "index.js",
   "scripts": {
+    "clean": "git clean -xfd src && rm -f index.js* index.d.ts",
     "lint": "eslint --ext .ts,.tsx src",
     "format": "prettier --write '**/*.{js,json,md,yml}'",
     "test": "jest --passWithNoTests",
     "dev": "vite",
+    "predocs": "npm run clean",
     "docs": "vite build --outDir docs",
     "build": "tsc --skipLibCheck --jsx react -d --sourcemap index.ts",
     "prepare": "husky install"
