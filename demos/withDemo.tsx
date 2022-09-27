@@ -34,6 +34,7 @@ type DemoControls = {
       value: DemoPropType<key, prop>;
       type?: string;
       options?: string[];
+      skip?: boolean;
     };
   };
 };
@@ -100,7 +101,14 @@ export function withDemo(name: string, Component: React.FunctionComponent) {
       }));
 
     function demoControlsMapper([propName, propField]: [string, any]) {
-      const { value, type = typeof value, options = [] } = propField;
+      const {
+        value,
+        type = typeof value,
+        options = [],
+        skip = false,
+      } = propField;
+      if (skip) return null;
+
       switch (type) {
         case 'variant':
         case 'size':
