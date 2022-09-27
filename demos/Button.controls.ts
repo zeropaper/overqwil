@@ -1,4 +1,4 @@
-import { ButtonVariant } from '@mantine/core';
+import { ButtonVariant, ButtonProps } from '../src';
 import { size } from './props';
 
 export const children = {
@@ -23,4 +23,14 @@ export const variant: {
     'subtle',
     'default',
   ],
+};
+
+export const type: {
+  value: 'button';
+  type: ButtonProps['type'];
+  skip: boolean;
+} = {
+  skip: true,
+  value: 'button',
+  type: 'button',
 };
