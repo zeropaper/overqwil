@@ -4,6 +4,7 @@
 .nvmrc
 jest.config.ts
 *.ts
+*.tsx
 !*.d.ts
 .husky
 .vscode
