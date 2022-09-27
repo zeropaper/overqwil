@@ -1,5 +1,5 @@
 export default function ButtonCode(props: string[], children?: string) {
-  return `import { Button } from 'overqwil';
+  return `import { Button } from '@zeropaper/overqwil';
 
 function Demo() {
   return (

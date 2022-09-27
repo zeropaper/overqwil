@@ -1,5 +1,5 @@
 export default function PaperCode(props: string[], children?: string) {
-  return `import { Paper } from 'overqwil';
+  return `import { Paper } from '@zeropaper/overqwil';
 
 function Demo() {
   return (

@@ -1,5 +1,5 @@
 export default function TextInputCode(props: string[]) {
-  return `import { TextInput } from 'overqwil';
+  return `import { TextInput } from '@zeropaper/overqwil';
 
 function Demo() {
   return (

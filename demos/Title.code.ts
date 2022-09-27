@@ -1,5 +1,5 @@
 export default function TitleCode(props: string[], children?: string) {
-  return `import { Title } from 'overqwil';
+  return `import { Title } from '@zeropaper/overqwil';
 
 function Demo() {
   return (
