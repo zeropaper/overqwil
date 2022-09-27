@@ -129,18 +129,24 @@ function ErrorBoundary() {
 
 const errorElement = <WithApp component={ErrorBoundary} />;
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <WithApp component={Intro} />,
+      errorElement,
+    },
+    ...Object.entries(demos).map(([name, Component]) => ({
+      path: `/${name.toLowerCase()}`,
+      element: <WithApp component={withDemo(name, Component as any)} />,
+      errorElement,
+    })),
+  ],
   {
-    path: '/',
-    element: <WithApp component={Intro} />,
-    errorElement,
-  },
-  ...Object.entries(demos).map(([name, Component]) => ({
-    path: `/${name.toLowerCase()}`,
-    element: <WithApp component={withDemo(name, Component as any)} />,
-    errorElement,
-  })),
-]);
+    // @ts-ignore
+    basename: import.meta.env.BASE_URL,
+  }
+);
 
 function App() {
   return <RouterProvider router={router} />;
