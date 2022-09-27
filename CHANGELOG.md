@@ -1,4 +1,13 @@
-# 0.2.0 (2022-09-27)
+## [0.2.1](https://github.com/zeropaper/overqwil/compare/v0.2.0...v0.2.1) (2022-09-27)
+
+
+### Bug Fixes
+
+* correct mishandled merge/rebase ([e499a2c](https://github.com/zeropaper/overqwil/commit/e499a2c56c7b095bda43bfccb852688d7d8150dd))
+
+
+
+# [0.2.0](https://github.com/zeropaper/overqwil/compare/095586a9405181cf1d2a5e9e9e6a356c7aa3f8c8...v0.2.0) (2022-09-27)
 
 
 ### Bug Fixes
