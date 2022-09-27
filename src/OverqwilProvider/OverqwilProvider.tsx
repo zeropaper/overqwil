@@ -10,31 +10,41 @@ import {
   ColorScheme,
 } from '@mantine/core';
 
+import components from './Overqwil.components';
+
 declare module '@mantine/core' {
+  export interface OverqwilColorGetter {
+    (colors: MantineThemeColors, colorScheme?: ColorScheme): string;
+  }
+
   export interface MantineThemeOther {
     accentColor: MantineColor;
     accentShade: MantineTheme['primaryShade'];
-    effectColor: (
-      colors: MantineThemeColors,
-      colorScheme?: ColorScheme
-    ) => string;
+    effectColor: OverqwilColorGetter;
   }
 }
 
 const emotionCache = createEmotionCache({ key: 'overqwil' });
 
-export type PropTypes = Omit<
-  MantineProviderProps,
-  | 'theme'
-  // | 'withNormalizeCSS'
-  // | 'withGlobalStyles'
-  // | 'withCSSVariables'
-  | 'emotionCache'
->;
+export type PropTypes = Omit<MantineProviderProps, 'theme' | 'emotionCache'> & {
+  theme: {
+    // screenEffect?: boolean;
+    colorScheme?: ColorScheme;
+    primaryColor?: MantineColor;
+    primaryShade?: MantineTheme['primaryShade'];
+    accentColor?: MantineColor;
+    accentShade?: MantineTheme['primaryShade'];
+  };
+};
 
-export function createTheme(): MantineThemeOverride {
-  const accentColor: MantineColor = 'cyan';
-  const accentShade: MantineTheme['primaryShade'] = { light: 2, dark: 2 };
+export function createTheme({
+  // screenEffect = false,
+  colorScheme = 'dark',
+  primaryColor = 'indigo',
+  primaryShade = 6,
+  accentColor = 'lime',
+  accentShade = 6,
+}: PropTypes['theme']): MantineThemeOverride {
   return {
     fontFamily: '"Titillium Web"',
     fontFamilyMonospace: 'Consolas, "Courier New", Courier, monospace',
@@ -42,30 +52,29 @@ export function createTheme(): MantineThemeOverride {
       fontFamily: '"Titillium Web"',
       fontWeight: 'bold',
     },
-    primaryColor: 'indigo',
-    primaryShade: 6,
+    primaryColor,
+    primaryShade,
+    colorScheme,
+    components,
     other: {
       accentColor,
       accentShade,
-      effectColor: (colors, colorScheme) =>
+      effectColor: (colors, cScheme) =>
         colors[accentColor][
-        typeof accentShade === 'number'
-          ? accentShade
-          : accentShade[colorScheme || 'light']
+          typeof accentShade === 'number'
+            ? accentShade
+            : accentShade[cScheme || 'light']
         ],
     },
   };
 }
 
-export function OverqwilProvider(props: PropTypes) {
+export function OverqwilProvider({ theme: themeProp, ...props }: PropTypes) {
   return (
     <MantineProvider
       {...props}
-      theme={createTheme()}
+      theme={createTheme(themeProp)}
       emotionCache={emotionCache}
-      withNormalizeCSS
-    // withGlobalStyles
-    // withCSSVariables
     />
   );
 }

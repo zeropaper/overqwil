@@ -13,6 +13,9 @@ const background = {
   '&:hover': {
     backgroundImage: 'var(--background-image-hover, var(--background-image))',
   },
+  '&:focus,&:focus-within': {
+    backgroundImage: 'var(--background-image-focus, var(--background-image))',
+  },
   borderRadius: 0,
   border: 0,
   backgroundColor: 'transparent',

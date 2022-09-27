@@ -7,38 +7,65 @@ import {
 
 import withBackgroundImage from '../OverqwilProvider/withBackgroundImage';
 
-const _Input = withBackgroundImage<InputProps, HTMLInputElement>(
-  OriginalInput,
-  (theme, params) => {
-    const colors = theme.fn.variant({
-      variant: params.variant || ('default' as any),
-      color: params.color,
-      primaryFallback: true,
-    });
-    const base = {
-      color: colors.color,
-      background: colors.background,
-      border: colors.border,
+export const inputBackgroundImage: Parameters<
+  typeof withBackgroundImage<InputProps, HTMLInputElement>
+>[1] = (theme, params) => {
+  const colors = theme.fn.variant({
+    variant: params.variant || ('default' as any),
+    color: params.color,
+    primaryFallback: true,
+  });
+  const base = {
+    color: colors.color,
+    background: colors.background,
+    border: colors.border,
+  };
+  const border = theme.colors[theme.primaryColor][theme.fn.primaryShade()];
+
+  if (params.variant === 'filled') {
+    const filledBase = {
+      ...base,
+      background:
+        theme.colorScheme === 'dark'
+          ? theme.colors.dark[5]
+          : theme.colors.gray[1],
+      border: 'transparent',
     };
     return {
-      base,
-      hover: {
-        ...base,
-        background: colors.hover,
-      },
+      base: filledBase,
+      hover: filledBase,
       active: {
-        ...base,
-        background: colors.hover,
+        ...filledBase,
+        border,
       },
-      disabled: {
-        ...base,
-      },
+      disabled: filledBase,
       focus: {
-        ...base,
-        background: colors.hover,
+        ...filledBase,
+        border,
       },
     };
   }
+
+  return {
+    base,
+    hover: base,
+    active: {
+      ...base,
+      background: colors.hover,
+      border,
+    },
+    disabled: base,
+    focus: {
+      ...base,
+      background: colors.hover,
+      border,
+    },
+  };
+};
+
+const _Input = withBackgroundImage<InputProps, HTMLInputElement>(
+  OriginalInput,
+  inputBackgroundImage
 ) as any;
 
 _Input.Wrapper = OriginalInput.Wrapper;

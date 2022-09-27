@@ -50,7 +50,6 @@ export function getSvgDeco({
   stroke?: string;
   fill?: string;
 }) {
-  // console.info('getSvgDeco', { width, height, radius, strokeWidth, stroke, fill });
   const shift = Math.round(strokeWidth * 0.5);
 
   const path = `
@@ -130,27 +129,39 @@ export function useBackgroundImage<
           : height,
         size,
         radius,
-        strokeWidth:
-          colors.base.border && colors.base.border !== 'transparent' ? 1 : 0,
       };
       setValues(() => ({
         '--background-image': `url("${getSvgDeco({
           ...base,
+          strokeWidth:
+            colors.base.border && colors.base.border !== 'transparent' ? 1 : 0,
           stroke: colors.base.border,
           fill: colors.base.background,
         })}")`,
         '--background-image-active': `url("${getSvgDeco({
           ...base,
-          stroke: colors.base.border,
-          fill: colors.base.background,
+          strokeWidth:
+            colors.active.border && colors.active.border !== 'transparent'
+              ? 1
+              : 0,
+          stroke: colors.active.border,
+          fill: colors.active.background,
         })}")`,
         '--background-image-focus': `url("${getSvgDeco({
           ...base,
-          stroke: colors.base.border,
-          fill: colors.base.background,
+          strokeWidth:
+            colors.focus.border && colors.focus.border !== 'transparent'
+              ? 1
+              : 0,
+          stroke: colors.focus.border,
+          fill: colors.focus.background,
         })}")`,
         '--background-image-hover': `url("${getSvgDeco({
           ...base,
+          strokeWidth:
+            colors.hover.border && colors.hover.border !== 'transparent'
+              ? 1
+              : 0,
           stroke: colors.hover.border,
           fill: colors.hover.background,
         })}")`,
