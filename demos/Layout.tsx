@@ -14,7 +14,6 @@ import {
   AppShell,
   Global,
   OverqwilProvider,
-  Footer,
 } from '..';
 
 export function Layout({ children }: { children: React.ReactElement }) {
@@ -48,8 +47,6 @@ export function Layout({ children }: { children: React.ReactElement }) {
     </Navbar>
   );
 
-  const footer = <Footer height={45}>Tada</Footer>;
-
   return (
     <OverqwilProvider
       theme={{
@@ -62,12 +59,7 @@ export function Layout({ children }: { children: React.ReactElement }) {
     >
       <Global noScreenEffect={!screenEffect} />
 
-      <AppShell
-        header={header}
-        navbarOffsetBreakpoint="sm"
-        navbar={navbar}
-        footer={footer}
-      >
+      <AppShell header={header} navbarOffsetBreakpoint="sm" navbar={navbar}>
         {children}
       </AppShell>
     </OverqwilProvider>
