@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable spaced-comment, import/no-unresolved, import/no-extraneous-dependencies */
 import * as React from 'react';
 import * as ReactDOM from 'react-dom/client';
@@ -145,7 +146,23 @@ function App() {
   return <RouterProvider router={router} />;
 }
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+declare global {
+  interface Window {
+    _appContainer: any;
+  }
+}
+
+function getRoot() {
+  if (typeof window !== 'undefined' && window._appContainer) {
+    return window._appContainer;
+  }
+  window._appContainer = ReactDOM.createRoot(
+    document.getElementById('root') as HTMLElement
+  );
+  return window._appContainer;
+}
+
+getRoot().render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
