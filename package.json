@@ -51,7 +51,7 @@
     "@commitlint/cli": "17.1.2",
     "@commitlint/config-conventional": "17.1.0",
     "@emotion/react": "11.10.4",
-    "@mantine/core": "5.4.1",
+    "@mantine/core": "5.8.3",
     "@mantine/form": "5.4.1",
     "@mantine/hooks": "5.4.1",
     "@mantine/prism": "5.4.1",
